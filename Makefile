@@ -1,3 +1,5 @@
+all: gengo gents
+
 gengo:
 	shopt -s globstar; \
 	protowrap -I $${GOPATH}/src \
@@ -5,8 +7,11 @@ gengo:
 		--proto_path $${GOPATH}/src \
 		--print_structure \
 		--only_specified_files \
-		$$(pwd)/**/*.proto
+	  $$(pwd)/timestamp.proto
 	# go install -v ./...
+
+gents:
+	./hack/gen_typescript.bash
 
 deps:
 	go get -u -v github.com/golang/protobuf/protoc-gen-go

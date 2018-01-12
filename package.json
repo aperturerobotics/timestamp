@@ -1,0 +1,20 @@
+{
+  "name": "@aperturerobotics/timestamp",
+  "private": true,
+  "version": "0.1.0",
+  "description": "timestamp object",
+  "main": "timestamp.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aperturerobotics/timestamp.git"
+  },
+  "author": "Christian Stewart <christian@aperturerobotics.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/aperturerobotics/timestamp/issues"
+  },
+  "homepage": "https://github.com/aperturerobotics/timestamp#readme",
+  "dependencies": {
+    "protobufjs": "^6.8.4"
+  }
+}
