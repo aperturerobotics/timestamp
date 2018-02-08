@@ -13,3 +13,4 @@ fi
 source $GEN_PROTO
 
 compile_proto
+rm -rf ./prototree
