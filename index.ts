@@ -1,2 +1,2 @@
-export * from './timestamp'
+export * from './pb'
 export * from './timestamp-util'
