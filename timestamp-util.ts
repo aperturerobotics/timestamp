@@ -13,5 +13,10 @@ export function timestampToTime(timestamp: timestamp.ITimestamp | null): Date {
         throw new Error('timestamp value expected')
     }
 
-    return new Date(timestamp.timeUnixMs.toNumber())
+    let t = timestamp.timeUnixMs
+    if (typeof t !== 'number') {
+        t = t.toNumber()
+    }
+
+    return new Date(t)
 }

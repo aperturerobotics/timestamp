@@ -3,12 +3,13 @@
     "private": true,
     "version": "0.2.0",
     "description": "timestamp object",
-    "main": "timestamp.js",
-    "types": "timestamp.d.ts",
+    "main": "dist/es/index.js",
+    "types": "dist/types/index.d.ts",
     "scripts": {
         "test": "jest",
         "test:watch": "jest --watch",
         "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
+        "build": "tsc",
         "precommit": "lint-staged"
     },
     "repository": {
@@ -22,6 +23,7 @@
     },
     "homepage": "https://github.com/aperturerobotics/timestamp#readme",
     "dependencies": {
+        "@types/long": "^3.0.32",
         "protobufjs": "^6.8.0"
     },
     "lint-staged": {

@@ -12,8 +12,15 @@
         "emitDecoratorMetadata": true,
         "declarationDir": "dist/types",
         "outDir": "dist/es",
+        "types": ["long"],
         "typeRoots": [
           "node_modules/@types"
         ]
-    }
+    },
+    "exclude": [
+        "test",
+        "dist",
+        "coverage",
+        "node_modules"
+    ]
 }
