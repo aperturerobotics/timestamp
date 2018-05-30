@@ -1,4 +1,4 @@
-all: gengo gents
+all: gengo
 
 gengo:
 	shopt -s globstar; \
