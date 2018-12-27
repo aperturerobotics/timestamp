@@ -19,7 +19,7 @@ func ToTime(t uint64) time.Time {
 
 // ToTime converts the Timestamp to a time.Time
 func (t *Timestamp) ToTime() time.Time {
-	return ToTime(t.TimeUnixMs)
+	return ToTime(t.GetTimeUnixMs())
 }
 
 // Now returns a timestamp for now.
