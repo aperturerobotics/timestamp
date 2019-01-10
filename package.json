@@ -1,7 +1,7 @@
 {
     "name": "@aperturerobotics/timestamp",
     "private": true,
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "timestamp object",
     "main": "dist/es/index.js",
     "types": "dist/types/index.d.ts",
