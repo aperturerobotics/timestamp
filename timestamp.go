@@ -14,7 +14,7 @@ func ToTimestamp(t time.Time) Timestamp {
 
 // ToTime generates a time object from a millisecond timestamp.
 func ToTime(t uint64) time.Time {
-	return time.Unix(0, int64(t)*1000000)
+	return time.Unix(0, int64(t)*1000000).UTC()
 }
 
 // ToTime converts the Timestamp to a time.Time
