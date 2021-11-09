@@ -24,7 +24,7 @@ func (t *Timestamp) ToTime() time.Time {
 
 // Now returns a timestamp for now.
 func Now() Timestamp {
-	return ToTimestamp(time.Now())
+	return ToTimestamp(time.Now().UTC())
 }
 
 // Validate checks the timestamp.
