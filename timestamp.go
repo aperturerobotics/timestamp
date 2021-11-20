@@ -1,7 +1,6 @@
 package timestamp
 
 import (
-	"errors"
 	"time"
 )
 
@@ -28,9 +27,9 @@ func Now() Timestamp {
 }
 
 // Validate checks the timestamp.
-func (t *Timestamp) Validate() error {
-	if t == nil || t.TimeUnixMs == 0 {
-		return errors.New("timestamp is empty")
+func (t *Timestamp) Validate(allowEmpty bool) error {
+	if !allowEmpty && t.GetTimeUnixMs() == 0 {
+		return ErrEmptyTimestamp
 	}
 	return nil
 }
