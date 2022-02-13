@@ -26,6 +26,15 @@ func Now() Timestamp {
 	return ToTimestamp(time.Now().UTC())
 }
 
+// Clone copies the timestamp.
+func (t *Timestamp) Clone() *Timestamp {
+	if t == nil {
+		return nil
+	}
+
+	return &Timestamp{TimeUnixMs: t.TimeUnixMs}
+}
+
 // Validate checks the timestamp.
 func (t *Timestamp) Validate(allowEmpty bool) error {
 	if !allowEmpty && t.GetTimeUnixMs() == 0 {
