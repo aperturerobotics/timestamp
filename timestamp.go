@@ -35,6 +35,11 @@ func (t *Timestamp) Clone() *Timestamp {
 	return &Timestamp{TimeUnixMs: t.TimeUnixMs}
 }
 
+// Equals checks if the timestamp equals another timestamp.
+func (t *Timestamp) Equals(ot *Timestamp) bool {
+	return t.GetTimeUnixMs() == ot.GetTimeUnixMs()
+}
+
 // Validate checks the timestamp.
 func (t *Timestamp) Validate(allowEmpty bool) error {
 	if !allowEmpty && t.GetTimeUnixMs() == 0 {
