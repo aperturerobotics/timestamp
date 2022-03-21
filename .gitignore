@@ -3,3 +3,4 @@ coverage
 .#*
 prototree/
 dist/
+vendor/
