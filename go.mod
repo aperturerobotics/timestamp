@@ -8,4 +8,4 @@ replace (
 	google.golang.org/genproto => google.golang.org/genproto v0.0.0-20190819201941-24fa4b261c55
 )
 
-require github.com/golang/protobuf v0.0.0-00010101000000-000000000000
+require github.com/golang/protobuf v1.5.2
