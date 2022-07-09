@@ -1,69 +1,62 @@
 {
-    "name": "@aperturerobotics/timestamp",
-    "private": true,
-    "version": "0.2.1",
-    "description": "timestamp object",
-    "main": "dist/es/index.js",
-    "types": "dist/types/index.d.ts",
-    "scripts": {
-        "test": "jest",
-        "test:watch": "jest --watch",
-        "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
-        "build": "tsc && ./hack/copy_pb.bash",
-        "precommit": "lint-staged"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/aperturerobotics/timestamp.git"
-    },
-    "author": "Christian Stewart <christian@aperturerobotics.com>",
-    "license": "UNLICENSED",
-    "bugs": {
-        "url": "https://github.com/aperturerobotics/timestamp/issues"
-    },
-    "homepage": "https://github.com/aperturerobotics/timestamp#readme",
-    "dependencies": {
-        "protobufjs": "^6.8.0"
-    },
-    "lint-staged": {
-        "**/*.ts": [
-            "prettier --write --no-semi --single-quote",
-            "git add"
-        ]
-    },
-    "jest": {
-        "transform": {
-            ".(ts|tsx)": "../../node_modules/ts-jest/preprocessor.js"
-        },
-        "testRegex": "(test|spec)\\.(ts|tsx|js)$",
-        "moduleFileExtensions": [
-            "ts",
-            "tsx",
-            "js"
-        ],
-        "coveragePathIgnorePatterns": [
-            "/node_modules/",
-            "timestamp.js"
-        ],
-        "coverageThreshold": {
-            "global": {
-                "branches": 90,
-                "functions": 95,
-                "lines": 95,
-                "statements": 95
-            }
-        },
-        "collectCoverage": true,
-        "mapCoverage": true
-    },
-    "devDependencies": {
-        "@types/long": "^3.0.32",
-        "@types/es6-promise": "^3.3.0",
-        "@types/jest": "^22.1.0",
-        "@types/node": "^9.4.5",
-        "lint-staged": "^6.0.0",
-        "prettier": "^1.4.4",
-        "ts-jest": "^22.0.1",
-        "typescript": "^2.6.2"
+  "name": "@aperturerobotics/timestamp",
+  "description": "Simple representation of a timestamp.",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Aperture Robotics LLC.",
+    "email": "support@aperture.us",
+    "url": "http://aperture.us"
+  },
+  "contributors": [
+    {
+      "name": "Christian Stewart",
+      "email": "christian@aperture.us",
+      "url": "http://github.com/paralin"
     }
+  ],
+  "repository": {
+    "url": "git@github.com:aperturerobotics/timestamp.git"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json --outDir ./dist/",
+    "check": "npm run typecheck",
+    "typecheck": "tsc --noEmit",
+    "deps": "depcheck --ignores bufferutil,utf-8-validate,ts-proto,ts-poet,esbuild,starpc",
+    "codegen": "npm run gen",
+    "ci": "npm run build && npm run lint:js && npm run lint:go",
+    "format": "prettier --write './!(vendor|dist)/**/(*.ts|*.tsx|*.js|*.html|*.css)'",
+    "gen": "make genproto",
+    "test": "make test && npm run check",
+    "test:js": "echo No JS tests.",
+    "demo": "make demo",
+    "lint": "npm run lint:go && npm run lint:js",
+    "lint:go": "make lint",
+    "lint:js": "eslint -c .eslintrc.js --ext .ts ./**/*.ts",
+    "prepare": "patch-package && go mod vendor",
+    "precommit": "npm run format"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "depcheck": "^1.4.3",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "patch-package": "^6.4.7",
+    "prettier": "^2.7.1",
+    "ts-proto": "^1.117.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@aperturerobotics/ts-proto-common-types": "^0.1.0",
+    "bufferutil": "^4.0.6",
+    "long": "^5.2.0",
+    "protobufjs": "^6.11.3",
+    "starpc": "^0.8.1",
+    "utf-8-validate": "^5.0.9"
+  }
 }
