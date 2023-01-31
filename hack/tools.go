@@ -1,10 +1,15 @@
+//go:build deps_only
+// +build deps_only
+
 package hack
 
 import (
+	// _ imports the parent project.
+	// this forces the versions in hack to be at least the versions in ..
+	_ "github.com/aperturerobotics/timestamp"
+
 	// _ imports protowrap
-	_ "github.com/square/goprotowrap"
-	// _ imports drpc
-	_ "storj.io/drpc/cmd/protoc-gen-go-drpc"
+	_ "github.com/aperturerobotics/goprotowrap/cmd/protowrap"
 	// _ imports protoc-gen-go
 	_ "google.golang.org/protobuf/cmd/protoc-gen-go"
 	// _ imports protoc-gen-go-vtproto
