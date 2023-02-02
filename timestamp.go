@@ -18,6 +18,9 @@ func ToTime(t uint64) time.Time {
 
 // ToTime converts the Timestamp to a time.Time
 func (t *Timestamp) ToTime() time.Time {
+	if t.GetTimeUnixMs() == 0 {
+		return time.Time{}
+	}
 	return ToTime(t.GetTimeUnixMs())
 }
 
