@@ -1514,15 +1514,10 @@ long@^4.0.0:
   resolved "https://registry.yarnpkg.com/long/-/long-4.0.0.tgz#9a7b71cfb7d361a194ea555241c92f7468d5bf28"
   integrity sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
 
-long@^5.0.0, long@^5.2.1:
+long@^5.0.0, long@^5.2.0, long@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/long/-/long-5.2.1.tgz#e27595d0083d103d2fa2c20c7699f8e0c92b897f"
   integrity sha512-GKSNGeNAtw8IryjjkhZxuKB3JzlcLTwjtiQCHKvqQet81I93kXslhDQruGI/QsddO83mcDToBVy7GqGS/zYf/A==
-
-long@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/long/-/long-5.2.0.tgz#2696dadf4b4da2ce3f6f6b89186085d94d52fd61"
-  integrity sha512-9RTUNjK60eJbx3uz+TEGF7fUr29ZDxR5QzXcyDpeSfeH28S9ycINflOgOlppit5U+4kNTe83KQnMEerw7GmE8w==
 
 longbits@^1.1.0:
   version "1.1.0"
@@ -1822,10 +1817,10 @@ protobufjs@^6.11.3, protobufjs@^6.8.8:
     "@types/node" ">=13.7.0"
     long "^4.0.0"
 
-protobufjs@^7.1.2, protobufjs@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-7.2.0.tgz#ca6b1ceb9a9efe21186ba96178089ec563011a5e"
-  integrity sha512-hYCqTDuII4iJ4stZqiuGCSU8xxWl5JeXYpwARGtn/tWcKCAro6h3WQz+xpsNbXW0UYqpmTQFEyFWO0G0Kjt64g==
+protobufjs@^7.1.2, protobufjs@^7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-7.2.1.tgz#939e76a8e69fd5c70b13f7dd78565d65ce20cdcb"
+  integrity sha512-L3pCItypTnPK27+CS8nuhZMYtsY+i8dqdq2vZsYHlG17CnWp1DWPQ/sos0vOKrj1fHEAzo3GBqSHLaeZyKUCDA==
   dependencies:
     "@protobufjs/aspromise" "^1.1.2"
     "@protobufjs/base64" "^1.1.2"
