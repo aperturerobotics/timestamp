@@ -10,14 +10,14 @@ require (
 	github.com/golangci/golangci-lint v1.51.2
 	github.com/planetscale/vtprotobuf v0.4.0
 	github.com/psampaz/go-mod-outdated v0.9.0
-	google.golang.org/protobuf v1.28.1
+	google.golang.org/protobuf v1.29.0
 )
 
 require (
 	github.com/aperturerobotics/goprotowrap v0.3.0
 	github.com/aperturerobotics/starpc v0.18.2
 	github.com/aperturerobotics/timestamp v0.6.3
-	github.com/evanw/esbuild v0.17.11
+	github.com/evanw/esbuild v0.17.12
 )
 
 require (
