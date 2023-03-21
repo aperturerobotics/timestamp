@@ -71,6 +71,7 @@ github.com/aperturerobotics/goprotowrap v0.3.0 h1:JLQ/1zVRdm2qwfeK7bPxWPg5fpTLlz
 github.com/aperturerobotics/goprotowrap v0.3.0/go.mod h1:ehsRFLviAKk5oiZK+i5oL4juhTYaGhaMrURiqY+ttLo=
 github.com/aperturerobotics/starpc v0.18.2 h1:yAdSTd5oUFaN0HEBBjOSHJLpPWTVLRSawG5CgKSXU3Y=
 github.com/aperturerobotics/starpc v0.18.2/go.mod h1:PCgjtWZDDSQ1qIuWONRZoci0y7L57Ey0Ao0x7x7JcMM=
+github.com/aperturerobotics/timestamp v0.6.3/go.mod h1:07359uHwQp41lzabUGMYv2kYo7HfjOoZY0edLV2TK/Y=
 github.com/ashanbrown/forbidigo v1.4.0 h1:spdPbupaSqtWORq1Q4eHBoPBmHtwVyLKwaedbSLc5Sw=
 github.com/ashanbrown/forbidigo v1.4.0/go.mod h1:IvgwB5Y4fzqSAj/WVXKWigoTkB0dzI2FBbpKWuh7ph8=
 github.com/ashanbrown/makezero v1.1.1 h1:iCQ87C0V0vSyO+M9E/FZYbu65auqH0lnsOkf5FcB28s=
