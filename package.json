@@ -25,7 +25,7 @@
     "deps": "depcheck --ignores bufferutil,utf-8-validate,ts-proto,ts-poet,esbuild,starpc,@aperturerobotics/ts-common",
     "codegen": "npm run gen",
     "ci": "npm run build && npm run lint:js && npm run lint:go",
-    "format": "prettier --write './!(vendor|dist)/**/(*.ts|*.tsx|*.js|*.html|*.css)'",
+    "format": "prettier --write './(*.ts|*.tsx|*.js|*.html|*.css)'",
     "gen": "make genproto",
     "test": "make test && npm run check",
     "test:js": "echo No JS tests.",
@@ -42,22 +42,22 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@aperturerobotics/ts-common": "^0.3.3",
-    "@typescript-eslint/eslint-plugin": "^5.54.1",
-    "@typescript-eslint/parser": "^5.54.1",
+    "@aperturerobotics/ts-common": "^0.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
     "depcheck": "^1.4.3",
-    "eslint": "^8.35.0",
-    "eslint-config-prettier": "^8.7.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
     "patch-package": "^6.5.1",
-    "prettier": "^2.8.4",
-    "ts-proto": "^1.141.0",
-    "typescript": "^4.9.5"
+    "prettier": "^2.8.5",
+    "ts-proto": "^1.143.0",
+    "typescript": "^5.0.2"
   },
   "dependencies": {
     "bufferutil": "^4.0.7",
     "long": "^5.2.1",
     "protobufjs": "^7.2.2",
-    "starpc": "^0.18.2",
+    "starpc": "^0.18.3",
     "utf-8-validate": "^6.0.3"
   }
 }
