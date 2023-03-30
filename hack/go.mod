@@ -7,7 +7,7 @@ replace github.com/aperturerobotics/timestamp => ../
 replace google.golang.org/protobuf => github.com/paralin/protobuf-go v1.28.2-0.20230110194655-55a09796292e // aperture
 
 require (
-	github.com/golangci/golangci-lint v1.52.0
+	github.com/golangci/golangci-lint v1.52.2
 	github.com/planetscale/vtprotobuf v0.4.0
 	github.com/psampaz/go-mod-outdated v0.9.0
 	google.golang.org/protobuf v1.30.0
@@ -17,7 +17,7 @@ require (
 	github.com/aperturerobotics/goprotowrap v0.3.0
 	github.com/aperturerobotics/starpc v0.18.3
 	github.com/aperturerobotics/timestamp v0.6.4
-	github.com/evanw/esbuild v0.17.12
+	github.com/evanw/esbuild v0.17.14
 )
 
 require (
@@ -116,7 +116,7 @@ require (
 	github.com/mgechev/revive v1.3.1 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
-	github.com/moricho/tparallel v0.3.0 // indirect
+	github.com/moricho/tparallel v0.3.1 // indirect
 	github.com/nakabonne/nestif v0.3.1 // indirect
 	github.com/nbutton23/zxcvbn-go v0.0.0-20210217022336-fa2cb2858354 // indirect
 	github.com/nishanths/exhaustive v0.9.5 // indirect
