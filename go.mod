@@ -2,4 +2,7 @@ module github.com/aperturerobotics/timestamp
 
 go 1.19
 
-require google.golang.org/protobuf v1.30.0
+require (
+	github.com/valyala/fastjson v1.6.4
+	google.golang.org/protobuf v1.30.0
+)

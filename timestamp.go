@@ -1,14 +1,24 @@
 package timestamp
 
 import (
+	"encoding/json"
+	"errors"
+	"strconv"
 	"time"
+
+	"github.com/valyala/fastjson"
 )
 
 // ToTimestamp generates a millisecond timestamp from the time object.
 func ToTimestamp(t time.Time) Timestamp {
 	return Timestamp{
-		TimeUnixMs: uint64(t.UnixNano() / 1000000),
+		TimeUnixMs: ToUnixMs(t),
 	}
+}
+
+// ToUnixMs converts a time to unix ms.
+func ToUnixMs(t time.Time) uint64 {
+	return uint64(t.UnixNano() / 1000000)
 }
 
 // ToTime generates a time object from a millisecond timestamp.
@@ -50,3 +60,58 @@ func (t *Timestamp) Validate(allowEmpty bool) error {
 	}
 	return nil
 }
+
+// UnmarshalJSON unmarshals json.
+// Supports string (unix milliseconds large value or RFC3339 timestamp), number (unix milliseconds)
+func (t *Timestamp) UnmarshalJSON(data []byte) error {
+	t.Reset()
+	var p fastjson.Parser
+	v, err := p.ParseBytes(data)
+	if err != nil {
+		return err
+	}
+	if v.Type() == fastjson.TypeNumber {
+		ms, err := v.Uint64()
+		if err != nil {
+			return err
+		}
+		t.TimeUnixMs = ms
+		return nil
+	}
+	if v.Type() == fastjson.TypeObject {
+		if v.Exists("timeUnixMs") {
+			t.TimeUnixMs = v.GetUint64("timeUnixMs")
+		}
+		return nil
+	}
+	if v.Type() == fastjson.TypeString {
+		str := string(v.GetStringBytes())
+		// try to parse as RFC3339
+		tt, err := time.Parse(time.RFC3339, str)
+		if err == nil {
+			t.TimeUnixMs = ToUnixMs(tt)
+			return nil
+		}
+
+		timeMs, err := strconv.ParseUint(str, 10, 64)
+		if err == nil {
+			t.TimeUnixMs = timeMs
+			return nil
+		}
+
+		return errors.New("cannot parse timestamp string")
+	}
+
+	return nil
+}
+
+// MarshalJSON marshals to a JSON RFC3339 timestamp.
+func (t *Timestamp) MarshalJSON() ([]byte, error) {
+	return []byte(strconv.Quote(t.ToTime().Format(time.RFC3339))), nil
+}
+
+// _ is a type assertion
+var (
+	_ json.Unmarshaler = ((*Timestamp)(nil))
+	_ json.Marshaler   = ((*Timestamp)(nil))
+)
