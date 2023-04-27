@@ -55,10 +55,15 @@ func (t *Timestamp) Equals(ot *Timestamp) bool {
 
 // Validate checks the timestamp.
 func (t *Timestamp) Validate(allowEmpty bool) error {
-	if !allowEmpty && t.GetTimeUnixMs() == 0 {
+	if !allowEmpty && t.GetEmpty() {
 		return ErrEmptyTimestamp
 	}
 	return nil
+}
+
+// GetEmpty checks if the timestamp is empty.
+func (t *Timestamp) GetEmpty() bool {
+	return t.GetTimeUnixMs() == 0
 }
 
 // UnmarshalJSON unmarshals json.
