@@ -110,9 +110,19 @@ func (t *Timestamp) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
+// ToRFC3339 formats the timestamp as RFC3339
+func (t *Timestamp) ToRFC3339() string {
+	return t.Format(time.RFC3339)
+}
+
+// Format formats using time.Format.
+func (t *Timestamp) Format(formatStr string) string {
+	return t.ToTime().Format(formatStr)
+}
+
 // MarshalJSON marshals to a JSON RFC3339 timestamp.
 func (t *Timestamp) MarshalJSON() ([]byte, error) {
-	return []byte(strconv.Quote(t.ToTime().Format(time.RFC3339))), nil
+	return []byte(strconv.Quote(t.ToRFC3339())), nil
 }
 
 // _ is a type assertion
