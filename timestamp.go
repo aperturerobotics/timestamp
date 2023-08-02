@@ -10,8 +10,8 @@ import (
 )
 
 // ToTimestamp generates a millisecond timestamp from the time object.
-func ToTimestamp(t time.Time) Timestamp {
-	return Timestamp{
+func ToTimestamp(t time.Time) *Timestamp {
+	return &Timestamp{
 		TimeUnixMs: ToUnixMs(t),
 	}
 }
@@ -35,7 +35,7 @@ func (t *Timestamp) ToTime() time.Time {
 }
 
 // Now returns a timestamp for now.
-func Now() Timestamp {
+func Now() *Timestamp {
 	return ToTimestamp(time.Now().UTC())
 }
 

@@ -44,7 +44,7 @@ func TestTimestampJSON(t *testing.T) {
 	if err := json.Unmarshal([]byte(datStr), parseTimestamp); err != nil {
 		t.Fatal(err.Error())
 	}
-	if !parseTimestamp.EqualVT(&times) {
+	if !parseTimestamp.EqualVT(times) {
 		t.FailNow()
 	}
 
@@ -53,7 +53,7 @@ func TestTimestampJSON(t *testing.T) {
 	if err := json.Unmarshal([]byte(msStr), parseTimestamp); err != nil {
 		t.Fatal(err.Error())
 	}
-	if !parseTimestamp.EqualVT(&times) {
+	if !parseTimestamp.EqualVT(times) {
 		t.FailNow()
 	}
 }
