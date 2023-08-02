@@ -17,7 +17,7 @@ function createBaseTimestamp(): Timestamp {
 export const Timestamp = {
   encode(
     message: Timestamp,
-    writer: _m0.Writer = _m0.Writer.create()
+    writer: _m0.Writer = _m0.Writer.create(),
   ): _m0.Writer {
     if (!message.timeUnixMs.isZero()) {
       writer.uint32(8).uint64(message.timeUnixMs)
@@ -34,14 +34,14 @@ export const Timestamp = {
       const tag = reader.uint32()
       switch (tag >>> 3) {
         case 1:
-          if (tag != 8) {
+          if (tag !== 8) {
             break
           }
 
           message.timeUnixMs = reader.uint64() as Long
           continue
       }
-      if ((tag & 7) == 4 || tag == 0) {
+      if ((tag & 7) === 4 || tag === 0) {
         break
       }
       reader.skipType(tag & 7)
@@ -54,7 +54,7 @@ export const Timestamp = {
   async *encodeTransform(
     source:
       | AsyncIterable<Timestamp | Timestamp[]>
-      | Iterable<Timestamp | Timestamp[]>
+      | Iterable<Timestamp | Timestamp[]>,
   ): AsyncIterable<Uint8Array> {
     for await (const pkt of source) {
       if (Array.isArray(pkt)) {
@@ -72,7 +72,7 @@ export const Timestamp = {
   async *decodeTransform(
     source:
       | AsyncIterable<Uint8Array | Uint8Array[]>
-      | Iterable<Uint8Array | Uint8Array[]>
+      | Iterable<Uint8Array | Uint8Array[]>,
   ): AsyncIterable<Timestamp> {
     for await (const pkt of source) {
       if (Array.isArray(pkt)) {
@@ -95,17 +95,17 @@ export const Timestamp = {
 
   toJSON(message: Timestamp): unknown {
     const obj: any = {}
-    message.timeUnixMs !== undefined &&
-      (obj.timeUnixMs = (message.timeUnixMs || Long.UZERO).toString())
+    if (!message.timeUnixMs.isZero()) {
+      obj.timeUnixMs = (message.timeUnixMs || Long.UZERO).toString()
+    }
     return obj
   },
 
   create<I extends Exact<DeepPartial<Timestamp>, I>>(base?: I): Timestamp {
-    return Timestamp.fromPartial(base ?? {})
+    return Timestamp.fromPartial(base ?? ({} as any))
   },
-
   fromPartial<I extends Exact<DeepPartial<Timestamp>, I>>(
-    object: I
+    object: I,
   ): Timestamp {
     const message = createBaseTimestamp()
     message.timeUnixMs =
