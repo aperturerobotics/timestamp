@@ -57,12 +57,12 @@ export const Timestamp = {
       | Iterable<Timestamp | Timestamp[]>,
   ): AsyncIterable<Uint8Array> {
     for await (const pkt of source) {
-      if (Array.isArray(pkt)) {
-        for (const p of pkt) {
+      if (globalThis.Array.isArray(pkt)) {
+        for (const p of pkt as any) {
           yield* [Timestamp.encode(p).finish()]
         }
       } else {
-        yield* [Timestamp.encode(pkt).finish()]
+        yield* [Timestamp.encode(pkt as any).finish()]
       }
     }
   },
@@ -75,12 +75,12 @@ export const Timestamp = {
       | Iterable<Uint8Array | Uint8Array[]>,
   ): AsyncIterable<Timestamp> {
     for await (const pkt of source) {
-      if (Array.isArray(pkt)) {
-        for (const p of pkt) {
+      if (globalThis.Array.isArray(pkt)) {
+        for (const p of pkt as any) {
           yield* [Timestamp.decode(p)]
         }
       } else {
-        yield* [Timestamp.decode(pkt)]
+        yield* [Timestamp.decode(pkt as any)]
       }
     }
   },
@@ -129,8 +129,8 @@ export type DeepPartial<T> = T extends Builtin
   ? T
   : T extends Long
   ? string | number | Long
-  : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
+  : T extends globalThis.Array<infer U>
+  ? globalThis.Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
   ? ReadonlyArray<DeepPartial<U>>
   : T extends { $case: string }
