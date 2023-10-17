@@ -16,7 +16,7 @@
     }
   ],
   "repository": {
-    "url": "git@github.com:aperturerobotics/timestamp.git"
+    "url": "git+ssh://git@github.com/aperturerobotics/timestamp.git"
   },
   "scripts": {
     "build": "tsc --project tsconfig.build.json --outDir ./dist/",
@@ -50,6 +50,7 @@
     "eslint-config-prettier": "^8.8.0",
     "patch-package": "^8.0.0",
     "prettier": "^3.0.0",
+    "ts-poet": "6.6.0",
     "ts-proto": "^1.143.0",
     "typescript": "^5.0.2"
   },
