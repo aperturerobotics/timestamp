@@ -2,6 +2,7 @@ syntax = "proto3";
 package timestamp;
 
 // Timestamp contains a cross-platform timestamp.
+//protobuf-go-lite:disable-json
 message Timestamp {
   // TimeUnixMs timestamp in unix milliseconds.
   uint64 time_unix_ms = 1;
