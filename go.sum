@@ -1,5 +1,5 @@
-github.com/aperturerobotics/common v0.16.8 h1:uKHIqQ+NMkn7G+dSUEvP/ZvjA0M5i/aXO/7l5GSeC/8=
-github.com/aperturerobotics/common v0.16.8/go.mod h1:CNUQ4LRn9e2zwKKrWMZiKoywhWV9+Wpn3QPn9uE2E7Y=
+github.com/aperturerobotics/common v0.16.10 h1:kQJvuISvuG8hZgNl0LErzr1PlRx0i4DxeVJgaG9EhQA=
+github.com/aperturerobotics/common v0.16.10/go.mod h1:CNUQ4LRn9e2zwKKrWMZiKoywhWV9+Wpn3QPn9uE2E7Y=
 github.com/aperturerobotics/protobuf-go-lite v0.6.5 h1:AuPPcZ7ZaJe9ZYYC4gF7/5/Xbn9Mt9uXyV3+ADWy+Ys=
 github.com/aperturerobotics/protobuf-go-lite v0.6.5/go.mod h1:YTbfnUj3feSULhs8VgepAHFnF3wUc0CPj4jd2axy21I=
 github.com/valyala/fastjson v1.6.4 h1:uAUNq9Z6ymTgGhcm0UynUAB6tlbakBrz6CQFax3BXVQ=
