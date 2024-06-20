@@ -20,7 +20,7 @@
     "url": "git+ssh://git@github.com/aperturerobotics/timestamp.git"
   },
   "scripts": {
-    "build": "tsc --project tsconfig.build.json --outDir ./dist/",
+    "build": "tsc --project tsconfig.json --outDir ./dist/",
     "check": "npm run typecheck",
     "typecheck": "tsc --noEmit",
     "deps": "depcheck --ignores bufferutil,utf-8-validate,ts-proto,ts-poet,esbuild,starpc,@aperturerobotics/ts-common",
