@@ -53,6 +53,7 @@
     "depcheck": "^1.4.6",
     "eslint": "^9.4.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-unused-imports": "^4.0.1",
     "prettier": "^3.3.0",
     "rimraf": "^6.0.0",
     "typescript": "^5.4.5"
