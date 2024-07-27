@@ -2,7 +2,6 @@ package timestamp
 
 import (
 	"encoding/json"
-	"strconv"
 	"testing"
 	"time"
 )
@@ -24,36 +23,65 @@ func TestNewTimestamp(t *testing.T) {
 }
 
 func TestTimestampJSON(t *testing.T) {
-	exampleVal := "2009-11-10T23:00:00Z"
-	ts, _ := time.Parse(time.RFC3339, exampleVal)
-	times := ToTimestamp(ts)
-	dat, err := json.Marshal(&times)
-	if err != nil {
-		t.Fatal(err.Error())
-	}
-	datStr := string(dat)
-	if datStr != strconv.Quote(exampleVal) {
-		t.FailNow()
+	tests := []struct {
+		name     string
+		input    string
+		expected time.Time
+	}{
+		{"RFC3339", `"2009-11-10T23:00:00Z"`, time.Date(2009, 11, 10, 23, 0, 0, 0, time.UTC)},
+		{"UnixMsString", `"1257894000000"`, time.Date(2009, 11, 10, 23, 0, 0, 0, time.UTC)},
+		{"UnixMsNumber", `1257894000000`, time.Date(2009, 11, 10, 23, 0, 0, 0, time.UTC)},
 	}
 
-	// test parsing the unix ms wrapped in a string
-	ms := times.GetTimeUnixMs()
-	msStr := strconv.FormatUint(ms, 10)
-	datStr = strconv.Quote(msStr)
-	parseTimestamp := &Timestamp{}
-	if err := json.Unmarshal([]byte(datStr), parseTimestamp); err != nil {
-		t.Fatal(err.Error())
-	}
-	if !parseTimestamp.EqualVT(times) {
-		t.FailNow()
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			t.Logf("Testing JSON unmarshaling for input: %s", tt.input)
+
+			var ts Timestamp
+			err := json.Unmarshal([]byte(tt.input), &ts)
+			if err != nil {
+				t.Fatalf("Failed to unmarshal JSON: %v", err)
+			}
+
+			gotTime := ts.ToTime()
+			if !gotTime.Equal(tt.expected) {
+				t.Errorf("Expected time %v, but got %v", tt.expected, gotTime)
+			}
+
+			t.Logf("Successfully unmarshaled to time: %v", gotTime)
+
+			// Test marshaling
+			marshaledJSON, err := json.Marshal(&ts)
+			if err != nil {
+				t.Fatalf("Failed to marshal Timestamp: %v", err)
+			}
+
+			t.Logf("Marshaled JSON: %s", string(marshaledJSON))
+
+			// Verify that unmarshaling the marshaled JSON gives the same result
+			var ts2 Timestamp
+			err = json.Unmarshal(marshaledJSON, &ts2)
+			if err != nil {
+				t.Fatalf("Failed to unmarshal marshaled JSON: %v", err)
+			}
+
+			if !ts.ToTime().Equal(ts2.ToTime()) {
+				t.Errorf("Marshaling and unmarshaling resulted in different times. Original: %v, After: %v", ts.ToTime(), ts2.ToTime())
+			}
+
+			t.Logf("Successfully round-tripped through JSON")
+		})
 	}
 
-	// test parsing the unix ms as a number
-	parseTimestamp = &Timestamp{}
-	if err := json.Unmarshal([]byte(msStr), parseTimestamp); err != nil {
-		t.Fatal(err.Error())
-	}
-	if !parseTimestamp.EqualVT(times) {
-		t.FailNow()
-	}
+	// Test error case
+	t.Run("InvalidInput", func(t *testing.T) {
+		invalidInput := `"not a timestamp"`
+		var ts Timestamp
+		err := json.Unmarshal([]byte(invalidInput), &ts)
+		if err == nil {
+			t.Error("Expected an error for invalid input, but got none")
+		} else {
+			t.Logf("Correctly received error for invalid input: %v", err)
+		}
+	})
 }
