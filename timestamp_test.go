@@ -11,7 +11,7 @@ func TestNewTimestamp(t *testing.T) {
 	ts := time.Now()
 	times := ToTimestamp(ts)
 	ta := times.ToTime()
-	var resolution = time.Millisecond * 1
+	resolution := time.Millisecond * 1
 	diff := ts.Sub(ta)
 	if diff < 0 {
 		diff *= -1
