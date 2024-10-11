@@ -3,7 +3,7 @@ module github.com/aperturerobotics/timestamp
 go 1.22
 
 require (
-	github.com/aperturerobotics/common v0.18.6 // latest
+	github.com/aperturerobotics/common v0.18.7 // latest
 	github.com/aperturerobotics/protobuf-go-lite v0.7.0 // latest
 )
 
