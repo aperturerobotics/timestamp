@@ -9,4 +9,4 @@ require (
 	github.com/aperturerobotics/protobuf-go-lite v0.9.1 // latest
 )
 
-require github.com/aperturerobotics/json-iterator-lite v1.0.1-0.20240713111131-be6bf89c3008
+require github.com/aperturerobotics/json-iterator-lite v1.0.1-0.20250712004945-4e5f8882b0b8

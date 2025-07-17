@@ -9,30 +9,30 @@ import (
 )
 
 // MarshalProtoJSON marshals the Timestamp message to JSON.
-func (x *Timestamp) MarshalProtoJSON(s *json.MarshalState) {
-	if x == nil {
+func (t *Timestamp) MarshalProtoJSON(s *json.MarshalState) {
+	if t == nil {
 		s.WriteNil()
 		return
 	}
 	s.WriteObjectStart()
 	var wroteField bool
-	if x.TimeUnixMs != 0 || s.HasField("timeUnixMs") {
+	if t.TimeUnixMs != 0 || s.HasField("timeUnixMs") {
 		s.WriteMoreIf(&wroteField)
 		s.WriteObjectField("timeUnixMs")
-		s.WriteUint64(x.TimeUnixMs)
+		s.WriteUint64(t.TimeUnixMs)
 	}
 	s.WriteObjectEnd()
 }
 
 // MarshalJSON marshals the Timestamp to JSON.
-func (x *Timestamp) MarshalJSON() ([]byte, error) {
-	return []byte(strconv.Quote(x.ToRFC3339())), nil
+func (t *Timestamp) MarshalJSON() ([]byte, error) {
+	return []byte(strconv.Quote(t.ToRFC3339())), nil
 }
 
 // UnmarshalProtoJSON unmarshals the Timestamp message from JSON.
 //
 // Supports string (unix milliseconds large value or RFC3339 timestamp), number (unix milliseconds)
-func (x *Timestamp) UnmarshalProtoJSON(s *json.UnmarshalState) {
+func (t *Timestamp) UnmarshalProtoJSON(s *json.UnmarshalState) {
 	if s.ReadNil() {
 		return
 	}
@@ -43,13 +43,13 @@ func (x *Timestamp) UnmarshalProtoJSON(s *json.UnmarshalState) {
 		// try to parse as RFC3339
 		tt, err := time.Parse(time.RFC3339, str)
 		if err == nil {
-			x.TimeUnixMs = ToUnixMs(tt)
+			t.TimeUnixMs = ToUnixMs(tt)
 			return
 		}
 
 		timeMs, err := strconv.ParseUint(str, 10, 64)
 		if err == nil {
-			x.TimeUnixMs = timeMs
+			t.TimeUnixMs = timeMs
 			return
 		}
 
@@ -59,7 +59,7 @@ func (x *Timestamp) UnmarshalProtoJSON(s *json.UnmarshalState) {
 	}
 
 	if nextTok == jsoniter.NumberValue {
-		x.TimeUnixMs = s.ReadUint64()
+		t.TimeUnixMs = s.ReadUint64()
 		return
 	}
 
@@ -71,14 +71,14 @@ func (x *Timestamp) UnmarshalProtoJSON(s *json.UnmarshalState) {
 			s.AddField("time_unix_ms")
 
 			// note: this also supports string encoding!
-			x.TimeUnixMs = s.ReadUint64()
+			t.TimeUnixMs = s.ReadUint64()
 		}
 	})
 }
 
 // UnmarshalJSON unmarshals the Timestamp from JSON.
-func (x *Timestamp) UnmarshalJSON(b []byte) error {
-	return json.DefaultUnmarshalerConfig.Unmarshal(b, x)
+func (t *Timestamp) UnmarshalJSON(b []byte) error {
+	return json.DefaultUnmarshalerConfig.Unmarshal(b, t)
 }
 
 // _ is a type assertion

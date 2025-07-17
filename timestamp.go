@@ -11,12 +11,12 @@ func ToTimestamp(t time.Time) *Timestamp {
 
 // ToUnixMs converts a time to unix ms.
 func ToUnixMs(t time.Time) uint64 {
-	return uint64(t.UnixNano() / 1000000)
+	return uint64(t.UnixNano() / 1000000) //nolint:gosec
 }
 
 // ToTime generates a time object from a millisecond timestamp.
 func ToTime(t uint64) time.Time {
-	return time.Unix(0, int64(t)*1000000).UTC()
+	return time.Unix(0, int64(t)*1000000).UTC() //nolint:gosec
 }
 
 // ToTime converts the Timestamp to a time.Time
