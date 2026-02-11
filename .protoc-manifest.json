@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "protocFlagsHash": "98ab2d2d472f9f4ebf961a0bdc4a6029492ceb801dbcad58266e0d22519cb0ee",
+  "toolVersions": "protoc=embedded,protobuf-go-lite=v0.12.1,starpc=v0.46.1,protobuf-es-lite=^1.0.1",
+  "packages": {
+    "github.com/aperturerobotics/timestamp": {
+      "hash": "74331bcfd511ce6aeae224b0b82c44a5c9bf147a48f6b5d5fcfbb686ebb08762",
+      "generatedFiles": [
+        "timestamp.pb.cc",
+        "timestamp.pb.go",
+        "timestamp.pb.h",
+        "timestamp.pb.rs",
+        "timestamp.pb.ts"
+      ],
+      "protoFiles": [
+        "timestamp.proto"
+      ]
+    }
+  }
+}

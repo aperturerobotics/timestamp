@@ -21,37 +21,38 @@
   },
   "scripts": {
     "build": "tsc --project tsconfig.json --noEmit false --outDir ./dist/",
-    "check": "npm run typecheck",
+    "check": "bun run typecheck",
     "typecheck": "tsc --noEmit",
     "deps": "depcheck --ignore-patterns=.eslintrc.cjs,package.json --ignores depcheck,prettier,typescript,rimraf,starpc,@aptre/common,@go/github.com,eslint,eslint-config-prettier,eslint-plugin-unused-imports,@typescript-eslint/eslint-plugin,@typescript-eslint/parser",
-    "codegen": "npm run gen",
-    "ci": "npm run build && npm run lint:js && npm run lint:go",
-    "format": "npm run format:js && npm run format:go && npm run format:config",
+    "codegen": "bun run gen",
+    "ci": "bun run build && npm run lint:js && npm run lint:go",
+    "format": "bun run format:js && npm run format:go && npm run format:config",
     "format:config": "prettier --write tsconfig.json package.json",
-    "format:js": "npm run format:js:changed",
+    "format:js": "bun run format:js:changed",
     "format:js:changed": "git diff --name-only --diff-filter=d HEAD | grep '\\(\\.ts\\|\\.tsx\\|\\.html\\|\\.css\\|\\.scss\\)$' | xargs -I {} prettier --write {}",
     "format:js:all": "prettier --write './(*.ts|*.tsx|*.js|*.html|*.css)'",
-    "format:go": "make format",
-    "gen": "make genproto",
-    "test": "make test && npm run check",
+    "format:go": "bun run go:aptre -- format",
+    "gen": "bun run go:aptre -- generate",
+    "gen:force": "bun run go:aptre -- generate --force",
+    "test": "bun run go:aptre -- test && npm run check",
     "test:js": "echo No JS tests.",
-    "demo": "make demo",
-    "lint": "npm run lint:go && npm run lint:js",
-    "lint:go": "make lint",
+    "lint": "bun run lint:go && npm run lint:js",
+    "lint:go": "bun run go:aptre -- lint",
     "lint:js": "ESLINT_USE_FLAT_CONFIG=false eslint -c .eslintrc.cjs ./",
     "prepare": "go mod vendor && rimraf ./.tools",
-    "precommit": "npm run format"
+    "go:aptre": "go run -mod=mod github.com/aperturerobotics/common/cmd/aptre",
+    "precommit": "bun run format"
   },
   "prettier": {
     "semi": false,
     "singleQuote": true
   },
   "devDependencies": {
-    "@aptre/common": "^0.22.0",
+    "@aptre/common": "^0.30.3",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "depcheck": "^1.4.6",
-    "eslint": "^9.4.0",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-unused-imports": "^4.0.1",
     "prettier": "^3.3.0",
@@ -59,10 +60,10 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@aptre/protobuf-es-lite": "^0.5.2",
-    "starpc": "^0.39.0"
+    "@aptre/protobuf-es-lite": "^1.0.1",
+    "starpc": "^0.46.2"
   },
   "resolutions": {
-    "@aptre/protobuf-es-lite": "^0.5.2"
+    "@aptre/protobuf-es-lite": "^1.0.1"
   }
 }
