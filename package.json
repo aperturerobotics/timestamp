@@ -23,7 +23,7 @@
     "build": "tsc --project tsconfig.json --noEmit false --outDir ./dist/",
     "check": "bun run typecheck",
     "typecheck": "tsc --noEmit",
-    "deps": "depcheck --ignore-patterns=.eslintrc.cjs,package.json --ignores depcheck,prettier,typescript,rimraf,starpc,@aptre/common,@go/github.com,eslint,eslint-config-prettier,eslint-plugin-unused-imports,@typescript-eslint/eslint-plugin,@typescript-eslint/parser",
+    "deps": "depcheck --ignore-patterns=eslint.config.js,package.json --ignores depcheck,prettier,typescript,rimraf,starpc,@aptre/common,@go/github.com,eslint,@eslint/js,eslint-config-prettier,eslint-plugin-unused-imports,@typescript-eslint/eslint-plugin,@typescript-eslint/parser",
     "codegen": "bun run gen",
     "ci": "bun run build && npm run lint:js && npm run lint:go",
     "format": "bun run format:js && npm run format:go && npm run format:config",
@@ -38,7 +38,7 @@
     "test:js": "echo No JS tests.",
     "lint": "bun run lint:go && npm run lint:js",
     "lint:go": "bun run go:aptre -- lint",
-    "lint:js": "ESLINT_USE_FLAT_CONFIG=false eslint -c .eslintrc.cjs ./",
+    "lint:js": "eslint --no-error-on-unmatched-pattern ./",
     "prepare": "go mod vendor && rimraf ./.tools",
     "go:aptre": "go run -mod=mod github.com/aperturerobotics/common/cmd/aptre",
     "precommit": "bun run format"
@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@aptre/common": "^0.30.3",
+    "@eslint/js": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "depcheck": "^1.4.6",

@@ -10,6 +10,7 @@
       },
       "devDependencies": {
         "@aptre/common": "^0.30.3",
+        "@eslint/js": "^9.0.0",
         "@typescript-eslint/eslint-plugin": "^8.0.0",
         "@typescript-eslint/parser": "^8.0.0",
         "depcheck": "^1.4.6",
@@ -133,6 +134,8 @@
     "@eslint/config-helpers": ["@eslint/config-helpers@0.5.2", "", { "dependencies": { "@eslint/core": "^1.1.0" } }, "sha512-a5MxrdDXEvqnIq+LisyCX6tQMPF/dSJpCfBgBauY+pNZ28yCtSsTvyTYrMhaI+LK26bVyCJfJkT0u8KIj2i1dQ=="],
 
     "@eslint/core": ["@eslint/core@1.1.0", "", { "dependencies": { "@types/json-schema": "^7.0.15" } }, "sha512-/nr9K9wkr3P1EzFTdFdMoLuo1PmIxjmwvPozwoSodjNBdefGujXQUF93u1DDZpEaTuDvMsIQddsd35BwtrW9Xw=="],
+
+    "@eslint/js": ["@eslint/js@9.39.2", "", {}, "sha512-q1mjIoW1VX4IvSocvM/vbTiveKC4k9eLrajNEuSsmjymSDEbpGddtpfOoN7YGAqBK3NG+uqo8ia4PDTt8buCYA=="],
 
     "@eslint/object-schema": ["@eslint/object-schema@3.0.1", "", {}, "sha512-P9cq2dpr+LU8j3qbLygLcSZrl2/ds/pUpfnHNNuk5HW7mnngHs+6WSq5C9mO3rqRX8A1poxqLTC9cu0KOyJlBg=="],
 
