@@ -1,11 +1,11 @@
 module github.com/aperturerobotics/timestamp
 
-go 1.25
+go 1.25.0
 
 require (
-	github.com/aperturerobotics/common v0.30.3 // latest
-	github.com/aperturerobotics/json-iterator-lite v1.0.1-0.20251104042408-0c9eb8a3f726
-	github.com/aperturerobotics/protobuf-go-lite v0.12.1 // latest
+	github.com/aperturerobotics/common v0.33.0 // latest
+	github.com/aperturerobotics/json-iterator-lite v1.1.0
+	github.com/aperturerobotics/protobuf-go-lite v0.13.0 // latest
 )
 
 require (
