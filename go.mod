@@ -3,15 +3,15 @@ module github.com/aperturerobotics/timestamp
 go 1.27.0
 
 require (
-	github.com/aperturerobotics/common v0.36.5 // latest
+	github.com/aperturerobotics/common v0.37.0 // latest
 	github.com/aperturerobotics/json-iterator-lite v1.1.0
-	github.com/aperturerobotics/protobuf-go-lite v0.19.1-0.20261018054529-f60c4d2691ea // latest
+	github.com/aperturerobotics/protobuf-go-lite v0.19.1-0.20261028131920-f644656fc4a7 // latest
 )
 
 require (
 	github.com/aperturerobotics/abseil-cpp v0.0.0-20260131110040-4bb56e2f9017 // indirect
 	github.com/aperturerobotics/cli v1.1.0 // indirect
-	github.com/aperturerobotics/fastjson v0.1.2-0.20260705010846-94f343f5bb34 // indirect
+	github.com/aperturerobotics/fastjson v0.1.2-0.20261021211904-de4eaec00660 // indirect
 	github.com/aperturerobotics/go-protoc-gen-prost v0.0.0-20261003014807-d46d22154f35 // indirect
 	github.com/aperturerobotics/go-protoc-wasi v0.0.0-20260808023521-7b1595380c3f // indirect
 	github.com/aperturerobotics/go-websocket v1.8.15-0.20260619192713-a096778f08c1 // indirect
